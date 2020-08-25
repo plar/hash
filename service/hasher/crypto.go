@@ -26,5 +26,6 @@ func NewSHA512Encryptor() Encryptor {
 // Hash generates SHA512 of password
 func (e *sha512Encryptor) Hash(password []byte) []byte {
 	e.hashFn.Reset()
-	return e.hashFn.Sum(password)
+	e.hashFn.Write(password)
+	return e.hashFn.Sum(nil)
 }

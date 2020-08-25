@@ -49,7 +49,7 @@ func TestCreate(t *testing.T) {
 	assert.True(errors.Is(err, hasher.ErrInvalidPassword))
 
 	// good password
-	hashID, err := svc.Create("password")
+	hashID, err := svc.Create("angryMonkey")
 	assert.NoError(err)
 	assert.Equal(domain.HashID(1), hashID)
 
@@ -68,7 +68,7 @@ func TestCreate(t *testing.T) {
 	}()
 	wg.Wait()
 
-	assert.Equal("hash{ID: 1, Hash: cGFzc3dvcmTPg+E1fu+4vfFUKFDWbYAH1iDkBQtXFdyD9Kkh02zpzkfQ0TxdhfKw/4MY0od+7C9juTG9R0F6gaU4Mnr5J9o+}", hash.String())
+	assert.Equal("hash{ID: 1, Hash: ZEHhWB65gUlzdVwtDQArEyx+KVLzp/aTaRaPlBzYRIFj6vjFdqEb0Q5B8zVKCZ0vKbZPZklJz0Fd7su2A+gf7Q==}", hash.String())
 	assert.NoError(err)
 
 	svc.Stop()
@@ -107,7 +107,7 @@ func TestGet(t *testing.T) {
 	}()
 	wg.Wait()
 
-	assert.Equal("hash{ID: 1, Hash: cGFzc3dvcmTPg+E1fu+4vfFUKFDWbYAH1iDkBQtXFdyD9Kkh02zpzkfQ0TxdhfKw/4MY0od+7C9juTG9R0F6gaU4Mnr5J9o+}", hash.String())
+	assert.Equal("hash{ID: 1, Hash: sQnzu7wkTrgkQZF+0G1hi5AI3Qmzvv0bXgc5THBqi7mAsdd4Xll27ASbRt9fEyavWi6m0QP9B8lThf+rDKy8hg==}", hash.String())
 	assert.NoError(err)
 
 	// bad id
